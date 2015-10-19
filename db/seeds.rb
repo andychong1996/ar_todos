@@ -1,10 +1,10 @@
 require 'faker'
-require_relative '../../models/task.rb'
+require_relative "../app/models/todo.rb"
 
 class Seeds
 	def self.seeding
 		10.times do
-			Task.add(Faker::Lorem.sentence)
+			Todo.add(Faker::Lorem.sentence)
 						
 		end
 	end
