@@ -1,6 +1,10 @@
 require_relative '../../config/application.rb'
 class Todo < ActiveRecord::Base
 
+	def self.add_for_seed(task)
+		self.create(task: task, complete_status: false)
+	end
+
 	def self.list()
 		todo_list = self.find_by_sql("SELECT * FROM todos")
 		todo_list.each_with_index do |row, row_index|
@@ -10,10 +14,6 @@ class Todo < ActiveRecord::Base
 			puts "[ ] #{row_index+1}. #{row.task}"
 			end
 		end
-		# self.each do |row|
-		# 	puts "#{row.index}. #{row.task} [#{row.complete_status}]"
-		# end
-
 	end
 
 	def self.add(task)
