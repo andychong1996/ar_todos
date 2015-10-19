@@ -10,12 +10,12 @@ when "list"
 	Todo.list
 when "delete"
 	Todo.delete(ARGV[1].to_i)
-when "complete"
-	Todo.complete(ARGV[1].to_i)
+when "mark_completed"
+	Todo.mark_completed(ARGV[1].to_i)
 else
 	puts "Opps...here's the commands your can run on this program(run this program again and remember add the command after the file name)"
 		puts "key-in add <your task here> to add task"
 		puts "key-in list to list out your current task"
 		puts "key-in delete <your task id> to delete task"
-		puts "key-in complete <your task id> to set task to completed"
+		puts "key-in mark_completed <your task id> to set task to completed"
 end

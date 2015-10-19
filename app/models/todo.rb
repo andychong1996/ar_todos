@@ -27,7 +27,7 @@ class Todo < ActiveRecord::Base
 		self.destroy(id)
 	end
 
-	def self.complete(id)
+	def self.mark_completed(id)
 		self.update(id, complete_status: true)
 	end
 
