@@ -26,14 +26,21 @@ class Todo < ActiveRecord::Base
 		todo_list.each_with_index do |row, index|
 			row_index = index+1
 			if row_index == index_to_delete
-			puts "Deleted #{row.task} from your TODO list"
-			self.destroy(row.id)
+				puts "Deleted '#{row.task}' from your TODO list"
+				self.destroy(row.id)
 			end
 		end
 	end
 
-	def self.mark_completed(id)
-		self.update(id, complete_status: true)
+	def self.mark_completed(index_to_completed)
+		todo_list = self.find_by_sql("SELECT * FROM todos")
+		todo_list.each_with_index do |row, index|
+			row_index = index+1
+			if row_index == index_to_completed
+				puts "#{row.task} is completed"
+				self.update(row.id, complete_status: true)
+			end
+		end
 	end
 
 end
