@@ -16,6 +16,6 @@ else
 	puts "Opps...here's the commands your can run on this program(run this program again and remember add the command after the file name)"
 		puts "key-in add <your task here> to add task"
 		puts "key-in list to list out your current task"
-		puts "key-in delete <your task id> to delete task"
+		puts "key-in delete <your task index> to delete task"
 		puts "key-in mark_completed <your task id> to set task to completed"
 end
